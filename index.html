@@ -2,12 +2,427 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>首页</title>
+  <link href="./css/normalize.css" >
+  <link href="./css/zzxrest0.1.css" >
   <link rel="stylesheet" href="./css/main.css">
+  <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous"> -->
+  <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+  crossorigin="anonymous"></script> -->
+  <style>
+  .member-component-wrap{
+    justify-content: flex-start;
+    margin: 60px 0px;
+
+  }
+  .member-component-wrap .member-list{
+    width:25%;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    border-right: 1px solid #eee;
+    padding-bottom: 14px;
+
+  }
+  .member-component-wrap .member-photo-part{
+    width:280px;
+    height: 280px;
+    background: #eee;
+    overflow: hidden;
+    margin-bottom: 16px;
+    cursor: pointer;
+    border-radius: 50%;
+    position: relative;
+  }
+  .member-component-wrap .member-photo-part img{
+    width: 100%;
+    opacity: 0;
+    position: absolute;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    transition:opacity 0.4s ease;
+    transform: translateZ(0)
+  }
+  .member-component-wrap .member-photo-part .author-2img{
+    /* display: none; */
+    opacity: 0;
+  }
+  .member-component-wrap .member-photo-part .author-1img{
+    opacity: 1;
+  }
+  .member-component-wrap .member-photo-part:hover .author-1img{
+    opacity: 0;
+  }
+  .member-component-wrap .member-photo-part:hover .author-2img{ 
+    /* display: block; */
+    opacity: 1;
+  }
+  .member-component-wrap .member-list>p{
+    font-size: 24px;
+    margin-bottom: 4px;
+  }
+  .member-component-wrap .member-list>span{
+    font-size: 14px;
+    color: #999;
+  }
+
+
+  .banner-wrap{
+    background: #2e7dd2;
+    padding-top: 40px;
+    margin-bottom: 40px;
+  }
+  .banner-wrap img{
+    width: 100%;
+  }
+
+
+  .global-header-wrap{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    left: 0;
+    z-index: 1000;
+    height: 78px;
+    /* background: white; */
+    color: white;
+  }
+  .global-header-wrap:after{
+    content:"";
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    transition: all 0.4s ease-out;
+    background: white;
+    border-bottom: 1px solid #e4e4e4;
+    height: 0;
+    z-index: 600;
+  }
+  .global-header-wrap.cur{
+    color: black;
+  }
+  .global-header-wrap.cur:after{
+    height: 100%;
+  }
+
+
+  .header-nav-center-part{
+    display: flex;
+    justify-content: space-between;
+    /* border:1px solid red; */
+    position: relative;
+    z-index: 1200;
+  }
+  .nav-ul-part{
+    width:600px;
+    text-align: right;
+    padding-right: 12px;
+  }
+  .nav-list{
+    display: inline-block;
+  }
+  .nav-list>a{
+    display: inline-block;
+    height: 78px;
+    line-height: 78px;
+    margin-left: 32px;
+    font-size: 18px;
+
+  }
+  .nav-logo-part{
+    display: inline-block;
+    height: 78px;
+    width: 160px;
+    /* border: 1px solid red; */
+  }
+
+  /* 标题板块 */
+  .section-title-part{
+    font-size: 38px;
+    text-align: center;
+    /* display: inline-block; */
+    padding: 20px 0;
+    color: #414553;
+  }
+
+  /* 业务特色 */
+  .project-tese-wrap>.global-center-box.dis-flex{
+    justify-content: space-between;
+  }
+  .tese-list{
+    width: 25%;
+    height: 340px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    /* border:1px solid red; */
+    position: relative;
+    /* color:  */
+    cursor: pointer;
+  }
+  .tese-list::before{
+    content:"";
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    transition: all 0.38s ease-out;
+    z-index: 100;
+    height: 0;
+  }
+  .tese-list::after{
+    content:"";
+    position: absolute;
+    width: 0;
+    left: 50%;
+    transform: translate(-50%,0);
+    bottom: 0;
+    opacity: 0.8;
+    transition: all 0.35s ease-in-out;
+    height: 12px;
+    z-index: 400;
+    transform-origin: center center;
+  }
+  /*  */
+  .tese-list:hover::after{
+    transition-delay: 0.35s;
+    /* height: 12px; */
+    width: 100%
+  }
+
+  .tese-list:hover{
+     color: white;
+  }
+
+  .tese-list:hover:before{
+    height: 100%;
+  }
+
+  .tese-inner-cont{
+    position: relative;
+    z-index: 200;
+    text-align: center;
+  }
+
+  .pro-ico-box{
+    margin-bottom: 14px;
+    width: 120px;
+    height: 120px;
+    /* border:1px solid red; */
+  }
+  .pro-ico-box img{
+    width: 100%;
+  }
+
+  .tese-ul .tese-list:nth-child(odd)::before{
+    background: #2e7dd2;
+  }
+
+  .tese-ul .tese-list:nth-child(even)::before{
+    background:#29d0c9;  
+  }
+
+  .tese-ul .tese-list:nth-child(odd)::after{
+    background: #0c5eb7;
+  }
+
+  .tese-ul .tese-list:nth-child(even)::after{
+    background:#099e98;  
+  }
+
+  .tese-ul .tese-list:nth-child(even)::before{
+    bottom:0;
+  }
+
+  .tese-ul .tese-list:nth-child(odd)::before{
+    /* top:0; */
+    bottom:0;
+  }
+
+  .tese-ul .tese-list .pro-ico-box{
+    background-size: 100% 100%;
+    background-position: center;
+  }
+  .tese-ul .tese-list:nth-of-type(1) .pro-ico-box{
+    background-image:url("./imgs/com_1.png");
+  }
+  .tese-ul .tese-list:nth-of-type(2) .pro-ico-box{
+    background-image:url("./imgs/lig_1.png");
+  }
+  .tese-ul .tese-list:nth-of-type(3) .pro-ico-box{
+    background-image:url("./imgs/too_1.png");
+  }
+  .tese-ul .tese-list:nth-of-type(4) .pro-ico-box{
+    background-image:url("./imgs/b_1.png");
+  }
+
+  .tese-ul .tese-list:nth-of-type(1):hover .pro-ico-box{
+    background-image:url("./imgs/com_1cur.png");
+  }
+  .tese-ul .tese-list:nth-of-type(2):hover .pro-ico-box{
+    background-image:url("./imgs/lig_1cur.png");
+  }
+  .tese-ul .tese-list:nth-of-type(3):hover .pro-ico-box{
+    background-image:url("./imgs/too_1cur.png");
+  }
+  .tese-ul .tese-list:nth-of-type(4):hover .pro-ico-box{
+    background-image:url("./imgs/b_1cur.png");
+  }
+  .section-wrap{
+    margin-bottom: 40px;
+  }
+
+
+  </style>
 </head>
 <body>
-  <h1>github xin</h1>
+  <!-- 头部导航组件 -->
+  <div class="global-header-wrap ">
+    <div class="global-center-box header-nav-center-part">
+      <a href="" class="nav-logo-part">
+        <img src="" alt="">
+      </a>
+      <ul class="nav-ul-part">
+        <li class="nav-list">
+          <a>首页</a>
+        </li>
+        <li class="nav-list">
+          <a>案列</a>
+        </li>
+        <li class="nav-list">
+          <a>加入</a>
+        </li>
+        <li class="nav-list">
+          <a>关于</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- banner组件 -->
+  <div class="banner-wrap">
+    <!-- <img src="./imgs/banner.jpg" alt=""> -->
+    <img src="./imgs/country@2x.png" alt="">
+  </div>
+
+  <!-- 业务特色组件 -->
+  <div class="section-wrap">
+    <div class="section-title-part">
+      <span class="txt">业务特色</span>
+    </div>
+    <div class="project-tese-wrap">
+      <div class="global-center-box dis-flex tese-ul">
+        <div class="tese-list">
+        <div class="tese-inner-cont">
+            <h2>PC Web</h2>
+            <div class="pro-ico-box">
+              <!-- <img src="./imgs/com_1.png" alt="" class="img-1"> -->
+            </div>
+            <p>品牌官网建设</p>
+        </div>
+        </div>
+        <div class="tese-list">
+          <div class="tese-inner-cont">
+            <h2>PC Web</h2>
+            <div class="pro-ico-box">
+              <!-- <img src="./imgs/lig_1.png" alt="" class="img-1">             -->
+            </div>
+            <p>品牌官网建设</p>
+          </div>
+        </div>
+        <div class="tese-list">
+          <div class="tese-inner-cont">
+            <h2>PC Web</h2>
+            <div class="pro-ico-box">
+              <!-- <img src="./imgs/too_1.png" alt="" class="img-1">             -->
+            </div>
+            <p>品牌官网建设</p>
+          </div>
+        </div>
+        <div class="tese-list">
+          <div class="tese-inner-cont">
+            <h2>PC Web</h2>
+            <div class="pro-ico-box">
+              <!-- <img src="./imgs/b_1.png" alt="" class="img-1">             -->
+            </div>
+            <p>品牌官网建设</p>
+          </div>
+        </div>
+        
+      
+      </div>
+    </div>
+    </div>
+
+  <!-- 会员组件 用户 作者 -->
+  <div class="section-wrap">
+    <div class="section-title-part">
+      <span class="txt">我们的团队</span>
+    </div>
+    <div class="member-component-wrap dis-flex">
+      <div class="member-list">
+        <div class="member-photo-part">
+          <img class="author-1img" src="./imgs/1.jpg" alt="">
+          <img class="author-2img" src="./imgs/2.jpg" alt="">
+        </div>
+        <p>新岛霖</p>
+        <span>西部世界不错的！~</span>
+      </div>
+      <div class="member-list">
+        <div class="member-photo-part">
+          <img class="author-1img" src="./imgs/2-2.jpg" alt="">
+          <img class="author-2img" src="./imgs/2-3.jpg" alt="">
+        </div>
+        <p>新岛霖</p>
+        <span>西部世界不错的！~</span>
+      </div>
+      <div class="member-list">
+        <div class="member-photo-part">
+
+        </div>
+        <p>新岛霖</p>
+        <span>西部世界不错的！~</span>
+      </div>
+      <div class="member-list">
+        <div class="member-photo-part">
+
+        </div>
+        <p>新岛霖</p>
+        <span>西部世界不错的！~</span>
+      </div>
+    </div>
+  </div>
+
+
+  
+  <script>
+  $(function(){
+    // console.log('111')
+    navBackScroll();
+    function navBackScroll(){
+      var winScrollTop = 0;
+      $(window).on("scroll",function(){
+        winScrollTop = $(this).scrollTop()
+        if(winScrollTop>160){
+          $(".global-header-wrap").addClass("cur")
+        }else{
+          $(".global-header-wrap").removeClass("cur")
+        }
+        console.log(winScrollTop)
+      })
+    }
+  })
+  </script>
 </body>
 </html>

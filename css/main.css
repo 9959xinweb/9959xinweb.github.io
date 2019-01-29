@@ -1,5 +1,14 @@
 body,ul,li,p{
     margin: 0;
     padding: 0;
-
+}
+.dis-flex{
+    display: flex;
+}
+.global-center-box{
+    width: 1200px;
+    margin: 0 auto;
+}
+a{
+    color: inherit;
 }

@@ -1,0 +1,270 @@
+/* font-family:字体样式 */
+.test1{
+/* font-family: STXihei, "Microsoft YaHei"; */
+/* font-family: STXihei, "华文细黑", "Microsoft YaHei", "微软雅黑"; */
+/* font-family: "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei"; */
+
+font-family: Helvetica, Tahoma, Arial, "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei";
+/* font-family: Helvetica, Tahoma, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei"; */
+
+}
+
+
+
+.test2{
+    font-family: "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    font-family:-apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif
+}
+
+.test3{
+    font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
+.test4{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.boot{
+    font-family: "Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","WenQuanYi Micro Hei",sans-serif,"Microsoft YaHei";
+}
+.cjw{
+    font-family: "Microsoft Yahei","Hiragino Sans GB","Helvetica Neue",Helvetica,tahoma,arial,"WenQuanYi Micro Hei",Verdana,sans-serif,"\5B8B\4F53";
+}
+table{
+    width: 100%;
+}
+
+.g{
+background: -moz-linear-gradient(top, #ff6665 0%, #fe8483 100%);
+background: -webkit-gradient(linear, top top, top bottom, color-stop(0%,#ff6665), color-stop(100%,#fe8483));
+background: -webkit-linear-gradient(top, #ff6665 0%,#fe8483 100%); 
+background: -o-linear-gradient(top, #ff6665 0%,#fe8483 100%);
+background: -ms-linear-gradient(top, #ff6665 0%,#fe8483 100%); 
+background: linear-gradient(to top, #ff6665 0%,#e3e3e3 100%);
+}
+
+
+
+.col-33{
+    width:33.33%;
+    float: left;
+    padding:0.6%;
+}
+.col-25{
+    width:25%;
+    float: left;
+    padding:0.6%;
+}
+.col-50{
+    width:50%;
+    float: left;
+    padding:0.6%;
+}
+
+.col-100{
+    width:100%;
+    float: left;
+    padding:0.6%;
+}
+i,em{
+    font-style: normal;
+}
+.text-c{
+    text-align: center;
+}
+.text-r{
+    text-align: right;
+}
+
+
+h1,h2,h3,h4,h5,h6{
+font-family:"Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei UI","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+}
+
+/* 清楚浮动 */
+ .cl:after{
+   content:"";/*加一段内容*/
+   display:block;/*让生成的元素以块级元素显示，占满剩余空间*/
+   height:0;/*避免生成的内容破坏原有布局高度*/
+   clear:both;/*清除浮动*/
+   visibility:hidden;/*让生成的内容不可见*/
+}
+.cl{zoom:1;/*为IE6，7的兼容性设置*/}
+
+
+h1,h2,h3,h4,h5,h6{
+    margin: 0;
+}
+.app-wrap{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; 
+    font-family: "Microsoft Yahei","Hiragino Sans GB","Helvetica Neue",Helvetica,tahoma,arial,"WenQuanYi Micro Hei",Verdana,sans-serif,"\5B8B\4F53";
+    
+}
+body,body *{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.app-wrap *{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+input[type="submit"],  
+input[type="text"],  
+input[type="reset"],  
+input[type="button"],  
+button {  
+-webkit-appearance: none;  
+}  
+input,button{
+    outline:none;
+}
+
+
+a{
+    color: inherit;
+    text-decoration: none;
+}
+
+li{
+    list-style-type:none;
+}
+ul{
+    padding: 0;
+    margin: 0;
+}
+p{
+    margin: 0;
+}
+
+.app-wrap{
+    max-width: 750px;
+    margin: 0 auto;
+    width: 100%;
+    /* border:1px solid black; */
+    /* min-height:900px; */
+}
+
+.app-header{
+    padding:0.29rem 0;
+    position: relative;
+    border-bottom:1px solid #eee;
+    background: white;
+}
+.app-title{
+    font-size:0.36rem;
+    text-align: center;
+}
+.app-title.pd-left{
+    text-align: left;
+    padding-left:0.8rem;
+}
+
+
+
+body{
+    font-size: 0.32rem;
+}
+.a-block{
+    display: block;
+}
+.flex-alink{
+    display: flex;
+}
+.app-back-btn{
+    position: absolute;
+    top: 50%;
+    transform: translate(0,-50%);
+    width: 0.5rem;
+    height: 0.5rem;
+    left:0.2rem;
+    /* background: #eee; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.app-back-btn i{
+    font-size: 1.4em;
+}
+.a-flex{
+    display: flex;
+}
+
+a{
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    -webkit-user-select: none;
+    -moz-user-focus: none;
+    -moz-user-select: none;
+}
+
+/* .text-ellipsis-2{overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp:2; padding:0 0px; } */
+
+.mian-color{
+    color:#fe4e63;
+}
+
+/* 导航固定底部样式 */
+.nav-bottom-wrap{
+    position: fixed;
+    max-width: 750px;
+    z-index:1001;
+    bottom: 0;
+    width: 100%;
+    /* height:1.2rem; */
+    padding:0.15rem 0;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    border-top:1px solid #eee;
+}
+.nav-b-list{
+    flex:3;
+    color: #353535;            
+}
+.nav-b-list.cur{
+    color: #fe6260;   
+}
+.nav-b-alink{
+    display: flex;
+    justify-content: center;            
+    height: 100%;
+    /* background:rgba(0,0,0,.4); */
+    flex-direction: column;
+    align-items: center;
+}
+.nav-b-icobox{
+    width:0.54rem;
+    height: 0.52rem;
+    /* background: blue; */
+    border-radius: 50%;
+    margin-bottom: 0.1rem;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#ff6e6a;
+    /* background:#eee; */
+    border:1px solid #ff6e6a;
+
+}
+
+
+@media screen and (max-width:740px){
+
+/* 兼容苹果 浏览器 点击body支持问题 问题 */
+body{
+    cursor:pointer;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color:transparent;
+}
+
+}
+
+/* ！！！解决虚拟键盘 和 固定定位的冲突问题 */
+@media (max-height:450px) { 
+    .nav-bottom-wrap,.fixed-btn-wrap{
+        display: none;
+    } 
+}
